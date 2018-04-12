@@ -13,8 +13,8 @@ const RippleAPI = require('ripple-lib').RippleAPI;
 
 
 //Your wallet info
-const address = 'Put your wallet address here';
-const secret = 'Put your secret here';
+const address = 'Put your wallet address as a string here';
+const secret = 'Put your secret as a string here';
 
 //Other variables
 const fee = {
