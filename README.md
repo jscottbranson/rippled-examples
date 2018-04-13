@@ -14,5 +14,5 @@ Visit me at [https://rabbitkick.club] or on Twitter: [@rabbitkickclub].
 [rippled-examples]:https://github.com/crypticrabbit/rippled-examples
 [ripple-lib]:https://github.com/ripple/ripple-lib
 [Reliable Transaction Submission]:https://ripple.com/build/reliable-transaction-submission/
-[@rabbitkick.club]:https://twitter.com/rabbitkickclub
+[@rabbitkickclub]:https://twitter.com/rabbitkickclub
 [https://rabbitkick.club]:https://rabbitkick.club
