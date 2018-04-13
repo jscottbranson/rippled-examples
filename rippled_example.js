@@ -1,5 +1,7 @@
 'use strict';
-//use ripple-lib
+
+//Use ripple-lib
+//For installation, see github.com/ripple/ripple-lib
 const RippleAPI = require('ripple-lib').RippleAPI;
 
 
