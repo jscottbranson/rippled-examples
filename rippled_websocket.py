@@ -80,7 +80,7 @@ class ws:
         ws.on_open = self.on_open
 
         # To disable ssl verification:
-        #   1. Uncomment 'include ssl' at the top of this file
+        #   1. Uncomment 'import ssl' at the top of this file
         #   2. Uncomment the first line that starts with 'ws.run_forever(sslopt=...'
         #   3. Comment/remove the second 'ws.run_forever()' line 
         #ws.run_forever(sslopt={"cert_reqs": ssl.CERT_NONE})
