@@ -7,14 +7,14 @@
 const RippleAPI = require('ripple-lib').RippleAPI;
 
 //sending address (string)
-//const address = 'rxxxxxxxxxxxxxx';
+const address = 'rxxxxxxxxxxxxxx';
 
 //Secret for sending address (string)
 const secret = 'ssh... It's secret.';
 
-//Destination (strings)
+//Destination (DT must be an integer)
 const dstAddress = 'r......';
-const dstTag = 'numbers';
+const dstTag = 000000;
 
 
 //Rippled server - Don't use servers you don't control/trust
