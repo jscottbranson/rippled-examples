@@ -18,6 +18,7 @@ const dstTag = 000000;
 
 
 //Rippled server - Don't use servers you don't control/trust
+//Change this to the server address you want to connect to
 const api = new RippleAPI({server: 'wss://10.10.10.10'});
 
 const fee = {
