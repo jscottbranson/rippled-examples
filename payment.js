@@ -10,7 +10,7 @@ const RippleAPI = require('ripple-lib').RippleAPI;
 const address = 'rxxxxxxxxxxxxxx';
 
 //Secret for sending address (string)
-const secret = 'ssh... It's secret.';
+const secret = 'secretKey';
 
 //Destination (DT must be an integer)
 const dstAddress = 'r......';
@@ -19,17 +19,23 @@ const dstTag = 000000;
 
 //Rippled server - Don't use servers you don't control/trust
 //Change this to the server address you want to connect to
-const api = new RippleAPI({server: 'wss://10.10.10.10'});
+const api = new RippleAPI({server: 'wss://10.10.10.10:443'});
+
+//Specify the ledger number by which this transaction must be validated.
+//This ensures a transaction will fail within a predictable time period.
+const last_ledger = {
+	'lastLedgerSequence': xxxxxx
+};
 
 const fee = {
 	maxFee: '.000012'
-};
+	};
 
 const payment = {
   source: {
 	  address: address,
       maxAmount: {
-	    value: '01.000012',
+	    value: '1',
 	    currency: 'XRP'
 	  },
   },
@@ -38,7 +44,7 @@ const payment = {
     //Comment the next line if no destination tag is required
     tag: dstTag,
     amount: {
-      value: '01',
+      value: '1',
       currency: 'XRP'
     }
   }
@@ -56,7 +62,7 @@ function fail(message) {
 
 api.connect().then(() => {
   console.log('Preparing the payment transaction...');
-  return api.preparePayment(address, payment, fee).then(prepared => {
+  return api.preparePayment(address, payment, fee, last_ledger).then(prepared => {
     console.log('Success! Payment transaction prepared...');
     const {signedTransaction} = api.sign(prepared.txJSON, secret);
     console.log('Payment transaction signed...');
