@@ -12,7 +12,7 @@
 # Subscriptions provide ongoing information on the XRP ledger's state, including transactions.
 # One use for this script is monitoring transaction flows or other data from the ledger.
 
-import numpy #makes websocket faster
+import numpy  # makes websocket faster
 import websocket
 import json
 #import ssl #only need ssl to disable wss cert verification.
