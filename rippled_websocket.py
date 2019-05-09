@@ -68,8 +68,7 @@ class Ws:
 
     def on_message(self, message):
         message = json.loads(message)
-        #Decide which method to use to parse the message
-        print(message)
+        print(json.dumps(message, indent=4, sort_keys=True))
 
     def on_error(self, error):
         print("Error:", error)
