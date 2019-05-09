@@ -1,2 +1,7 @@
-node_modules/
-yarn.lock
+env/
+__pycache__/
+*.py.swp
+*.pyc
+*.egg-info
+
+*.log
