@@ -8,6 +8,9 @@ const RippleAPI = require('ripple-lib').RippleAPI;
 //set variables
 const myAddress = 'Enter wallet address as a string.';
 
+//Uncomment the following line to allow self signed SSL/TLS certificates
+//process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
+
 //connect to the api
 const api = new RippleAPI({server: 'wss://s1.ripple.com:443'});
 api.connect().then(() => {
@@ -23,7 +26,6 @@ api.connect().then(() => {
 }).then(info => {
 	  console.log(info);
 
-	
 	  /* end custom code -------------------------------------- */
 }).then(() => {
 	  return api.disconnect();

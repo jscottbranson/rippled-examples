@@ -60,6 +60,9 @@ function fail(message) {
   process.exit(1);
 }
 
+//Uncomment the following line to allow self-signed certs
+//process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
+
 api.connect().then(() => {
   console.log('Preparing the payment transaction...');
   return api.preparePayment(address, payment, fee, last_ledger).then(prepared => {
