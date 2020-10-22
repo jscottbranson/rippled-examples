@@ -1,6 +1,6 @@
 rippled-examples
 ================
-[rippled-examples] contains sample code that is used to interact with or configure rippled. Some of the code in this repo is written in JS, and requires [ripple-lib].
+[rippled-examples] contains sample code that is used to interact with or configure rippled.
 
 Synopsis
 --------
@@ -12,7 +12,6 @@ Anyone is free to use, modify, and distribute any of these files.
 Visit me at [https://rabbitkick.club] or on Twitter: [@rabbitkickclub].
 
 [rippled-examples]:https://github.com/crypticrabbit/rippled-examples
-[ripple-lib]:https://github.com/ripple/ripple-lib
-[Reliable Transaction Submission]:https://ripple.com/build/reliable-transaction-submission/
-[@rabbitkickclub]:https://twitter.com/rabbitkickclub
+[Reliable Transaction Submission]:https://xrpl.org/reliable-transaction-submission.html
+[@rabbitkickclub]:https://twitter.com/xrpl_rabbit
 [https://rabbitkick.club]:https://rabbitkick.club
