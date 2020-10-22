@@ -9,9 +9,9 @@ This purpose of this repository is to store sample code. Since this is sample co
 License
 -------
 Anyone is free to use, modify, and distribute any of these files.
-Visit me at [https://rabbitkick.club] or on Twitter: [@rabbitkickclub].
+Visit me at [https://rabbitkick.club] or on Twitter: [@xrpl_rabbit].
 
 [rippled-examples]:https://github.com/crypticrabbit/rippled-examples
 [Reliable Transaction Submission]:https://xrpl.org/reliable-transaction-submission.html
-[@rabbitkickclub]:https://twitter.com/xrpl_rabbit
+[@xrpl_rabbit]:https://twitter.com/xrpl_rabbit
 [https://rabbitkick.club]:https://rabbitkick.club
