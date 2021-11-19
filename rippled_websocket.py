@@ -21,14 +21,16 @@ import json
 import websocket # 'pip install websocket-client'
 
 # Specify the server to connect to
-WS_ADDRESS = "wss://s1.ripple.com:443"
+WS_ADDRESS = "wss://xrplcluster.com:443"
 
 # Tailor subscriptions here
 # Subscriptions are described in the rippled documentation:
 # https://ripple.com/build/rippled-apis/#subscribe
-LEDGER = {"id": "1", "command": "subscribe", "streams": ["ledger"]}
-SERVER = {"id": "1", "command": "subscribe", "streams": ["server"]}
-VALIDATIONS = {"id": "1", "command": "subscribe", "streams": ["validations"]}
+LEDGER = {"id": "rabbit_example_ws", "command": "subscribe", "streams": ["ledger"]}
+SERVER = {"id": "rabbit_example_ws", "command": "subscribe", "streams": ["server"]}
+VALIDATIONS = {"id": "rabbit_example_ws", "command": "subscribe", "streams": ["validations"]}
+TRANSACTIONS = {"id": "rabbit_example_ws", "command": "subscribe", "streams": ["transactions", "transactions_proposed"]}
+CONSENSUS = {"id": "rabbit_example_ws", "command": "subscribe", "streams": ["consensus"]}
 BOOKS = {
     "command": "subscribe",
     "books": [
@@ -56,7 +58,7 @@ BOOKS = {
 }
 
 # Use the following variable to define which subscription to use
-WS_COMMAND = json.dumps(BOOKS)
+WS_COMMAND = json.dumps(LEDGER)
 
 class Ws:
     '''
@@ -66,17 +68,17 @@ class Ws:
     def __init__(self):
         self.websocket_launch()
 
-    def on_message(self, message):
+    def on_message(self, ws, message):
         message = json.loads(message)
         print(json.dumps(message, indent=4, sort_keys=True))
 
-    def on_error(self, error):
+    def on_error(self, ws, error):
         print("Error:", error)
 
-    def on_close(self):
-        print("WS connection closed.")
+    def on_close(self, ws, close_status_code, close_msg):
+        print(f"WS connection closed. Status code: {close_status_code}.\nMessage: {close_msg}")
 
-    def on_open(self):
+    def on_open(self, ws):
         '''
         Initial command to send after opening the websocket.
         '''
