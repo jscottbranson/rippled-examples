@@ -1,17 +1,14 @@
 '''
-Code by rabbit:
-  * https://rabbitkick.club or @rabbitkickclub on Twitter
-
 This script provides an example/template using python3 to connect to a rippled
-node via websocket (WS). WS must also be configured in the node's rippled.cfg file.
+node via websocket (WS). It's designed to get novice developers subscribed and engaged with
+minimal effort. In order to subscribe, WS must be configured in the remote node's rippled.cfg file.
 This script uses the 'websocket' module, which is available via pip.
 This script is based on this example: https://github.com/websocket-client/websocket-client
 
 This is offered 'as is'. Users will likely need to modify the script to meet their
 individual needs.
 
-Subscriptions provide ongoing information on the XRP ledger's state, including transactions.
-One use for this script is monitoring transaction flows or other data from the ledger.
+Subscriptions provide ongoing information on the XRP Ledger's state, including transactions.
 '''
 
 import sys
@@ -26,11 +23,12 @@ WS_ADDRESS = "wss://xrplcluster.com:443"
 # Tailor subscriptions here
 # Subscriptions are described in the rippled documentation:
 # https://ripple.com/build/rippled-apis/#subscribe
-LEDGER = {"id": "rabbit_example_ws", "command": "subscribe", "streams": ["ledger"]}
-SERVER = {"id": "rabbit_example_ws", "command": "subscribe", "streams": ["server"]}
-VALIDATIONS = {"id": "rabbit_example_ws", "command": "subscribe", "streams": ["validations"]}
-TRANSACTIONS = {"id": "rabbit_example_ws", "command": "subscribe", "streams": ["transactions", "transactions_proposed"]}
-CONSENSUS = {"id": "rabbit_example_ws", "command": "subscribe", "streams": ["consensus"]}
+LEDGER = {"id": "example_ws", "command": "subscribe", "streams": ["ledger"]}
+SERVER = {"id": "example_ws", "command": "subscribe", "streams": ["server"]}
+VALIDATIONS = {"id": "example_ws", "command": "subscribe", "streams": ["validations"]}
+TRANSACTIONS = {"id": "example_ws", "command": "subscribe", "streams": ["transactions", "transactions_proposed"]}
+CONSENSUS = {"id": "example_ws", "command": "subscribe", "streams": ["consensus"]}
+MANIFESTS = {"id": "example_ws", "command": "subscribe", "streams": ["manifests"]}
 BOOKS = {
     "command": "subscribe",
     "books": [
@@ -58,7 +56,7 @@ BOOKS = {
 }
 
 # Use the following variable to define which subscription to use
-WS_COMMAND = json.dumps(LEDGER)
+WS_COMMAND = json.dumps(MANIFESTS)
 
 class Ws:
     '''
