@@ -18,8 +18,7 @@ import json
 import websocket # 'pip install websocket-client'
 
 # Specify the server to connect to
-#WS_ADDRESS = "wss://xrplcluster.com:443"
-WS_ADDRESS = "wss://10.22.2.66:6006"
+WS_ADDRESS = "wss://xrplcluster.com:443"
 
 # Tailor subscriptions here
 # Subscriptions are described in the rippled documentation:
