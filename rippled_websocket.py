@@ -18,7 +18,8 @@ import json
 import websocket # 'pip install websocket-client'
 
 # Specify the server to connect to
-WS_ADDRESS = "wss://xrplcluster.com:443"
+#WS_ADDRESS = "wss://xrplcluster.com:443"
+WS_ADDRESS = "wss://10.22.2.66:6006"
 
 # Tailor subscriptions here
 # Subscriptions are described in the rippled documentation:
@@ -56,19 +57,22 @@ BOOKS = {
 }
 
 # Use the following variable to define which subscription to use
-WS_COMMAND = json.dumps(MANIFESTS)
+WS_COMMAND = json.dumps(TRANSACTIONS)
 
 class Ws:
     '''
     Open a websocket connection, send the subscription command,
     and parse messages from the web server.
     '''
+    ctr = 0
     def __init__(self):
         self.websocket_launch()
 
     def on_message(self, ws, message):
-        message = json.loads(message)
-        print(json.dumps(message, indent=4, sort_keys=True))
+        self.ctr += 1
+        print('rcd', self.ctr)
+        #message = json.loads(message)
+        #print(json.dumps(message, indent=4, sort_keys=True))
 
     def on_error(self, ws, error):
         print("Error:", error)
@@ -98,8 +102,8 @@ class Ws:
         )
 
         try:
-            self.socket.run_forever()
-            #self.socket.run_forever(sslopt={"cert_reqs": ssl.CERT_NONE})
+            #self.socket.run_forever()
+            self.socket.run_forever(sslopt={"cert_reqs": ssl.CERT_NONE})
         except KeyboardInterrupt:
             sys.exit()
 
